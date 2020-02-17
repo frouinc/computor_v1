@@ -37,20 +37,3 @@ while (i < len(sys.argv)):
 	a, b, c = parse(s)
 	polynomial.second(c, b, a)
 	i += 1
-
-# # d > 0 : 1 & -3
-# a = 1
-# b = 2
-# c = -3
-
-# # d == 0 : 1
-# # a = -2
-# # b = 4
-# # c = -2
-
-# # d < 0
-# # a = 3
-# # b = 2
-# # c = 5
-
-# polynomial.second(a, b, c)
