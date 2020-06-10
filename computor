@@ -50,7 +50,6 @@ while (i < len(sys.argv)):
 	s = sys.argv[i]
 	print("Trying to calculate the equation : {}\n".format(s))
 	a, b, c = parse(s)
-	exit
 	polynomial.second(c, b, a)
 	print("\n-----------------------------------")
 	i += 1
