@@ -1,24 +1,26 @@
 import ft_math as math
 
 def zero(a):
-	print("Reduced form : {} = 0".format(a))
-	print("Polynomial degree : 0")
+	print("Reduced form : {} = 0\n".format(a))
+	print("Polynomial degree : 0\n")
 	if (a == 0):
-		print("The solution is any real number")
+		print("The solution is \033[32many real number\033[0m")
 	else:
-		print("There is no solution")
+		print("There is \033[32mno solution\033[0m")
 
 def first(a, b):
+	# if degree 1 is null, check for zero degree
 	if (a == 0):
 		zero(b)
 		return
 
-	print("Reduced form : {} + {} * X = 0".format(b, a))
-	print("Polynomial degree : 1")
+	print("Reduced form : {} + {} * X = 0\n".format(b, a))
+	print("Polynomial degree : 1\n")
 	r = -(b / a)
-	print("The solution is {}".format(r))
+	print("The solution is \033[32m{}\033[0m".format(r))
 
 def second(a, b, c):
+	# if degree 2 is null, check for first degree
 	if (a == 0):
 		first(b, c)
 		return
