@@ -23,16 +23,16 @@ def second(a, b, c):
 		first(b, c)
 		return
 
-	print("Reduced form : {} + {} * X + {} * X^2 = 0".format(c, b, a))
-	print("Polynomial degree : 2")
+	print("Reduced form : {} + {} * X + {} * X^2 = 0\n".format(c, b, a))
+	print("Polynomial degree : 2\n")
 	d = math.power(b, 2) - 4 * a * c
 
 	if (d < 0 or a == 0):
-		print("Discriminant is negative, there is no solution")
+		print("Discriminant is negative, there is \033[32mno solution\033[0m")
 	elif (d == 0):
 		r = -b / (2 * a)
-		print("Discriminant is equal to 0, there is one solution : {}".format(round(r, 6)))
+		print("Discriminant is equal to 0, there is one solution : \033[32m{}\033[0m".format(round(r, 6)))
 	else:
 		r1 = (-b - math.sqrt(d)) / (2 * a)
 		r2 = (-b + math.sqrt(d)) / (2 * a)
-		print("Discriminant is strictly positive, there are two solutions : {} and {}".format(round(r1, 6), round(r2, 6)))
+		print("Discriminant is strictly positive, there are two solutions : \033[32m{}\033[0m and \033[32m{}\033[0m".format(round(r1, 6), round(r2, 6)))

@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+import sys
+import polynomial
+
+# Get the trinome of one side
+def get_tri(s):
+	s = s.split("+")
+	arr = [0.0, 0.0, 0.0]
+
+	# Loop through the pieces
+	for p in s:
+		if (len(p) == 0):
+			continue
+		tmp = p.split("*X^")
+
+		# Check if has a power
+		if (len(tmp) == 1):
+			arr[0] = float(tmp[0])
+		else:
+			# Check for exponant not being a positive integer
+			if (tmp[1].isdigit() == False):
+				print("\033[31mOne of the powers is not a positive integer, I can't solve.\033[0m")
+				exit()
+
+			# Check polynomial degree
+			if (int(tmp[1]) > 2):
+				print("\033[31mThe polynomial degree is stricly greater than 2, I can't solve.\033[0m")
+				exit()
+			arr[int(tmp[1])] = (float(tmp[0]))
+
+	return arr
+
+# Parse the equation and return the a, b and c values
+def parse(s):
+	s = s.replace(" ", "").replace("^+", "^").replace("-", "+-").replace("^+-", "^-")
+	sides = s.split("=")
+	left = get_tri(sides[0])
+	right = get_tri(sides[1])
+	return [a_i - b_i for a_i, b_i in zip(left, right)]
+
+# Check argument
+if (len(sys.argv) == 1):
+	print("\033[31mYou need to supply at least one equation.\033[0m")
+	exit()
+
+# Solve all the equations
+i = 1
+while (i < len(sys.argv)):
+	s = sys.argv[i]
+	print("Trying to calculate the equation : {}\n".format(s))
+	a, b, c = parse(s)
+	exit
+	polynomial.second(c, b, a)
+	print("\n-----------------------------------")
+	i += 1
